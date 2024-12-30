@@ -1,10 +1,14 @@
 import { Component } from '@angular/core';
 import { Book } from '../models/book';
 import { OnInit } from '@angular/core';
+import { FormsModule, NgForm } from '@angular/forms';
+
+import { NgFor } from '@angular/common';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-book',
-  imports: [],
+  imports: [FormsModule, NgFor],
   templateUrl: './book.component.html',
   styleUrl: './book.component.css'
 })
@@ -20,7 +24,7 @@ export class BookComponent implements OnInit {
     this.books = savedBooks ? JSON.parse(savedBooks) : [];
   }
 
-  addAppointment() {
+  addBook() {
     if(this.newBookTitle.trim().length && this.newAuthor){
       let newBook: Book = {
         id:Date.now(),
